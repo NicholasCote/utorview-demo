@@ -1,0 +1,14 @@
+replicaCount: 1
+
+webapp:
+  name: utorview-demo
+  group: utorview-demo
+  path: /
+  tls:
+    fqdn: utorview-demo.k8s.ucar.edu
+    secretName: incommon-cert-utorview-demo
+  container: 
+    image: ncote/utorview-demo:latest
+    port: 80
+    memory: 1G
+    cpu: 2

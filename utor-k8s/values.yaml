@@ -10,5 +10,5 @@ webapp:
   container: 
     image: ncote/utorview-demo:latest
     port: 80
-    memory: 1G
-    cpu: 2
+    memory: 4G
+    cpu: 4

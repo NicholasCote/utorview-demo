@@ -23,14 +23,14 @@ jobs:
         id: date
         run: echo "date=$(date +'%Y-%m-%d.%H.%M')" >> $GITHUB_OUTPUT
       - name: Build and push image
-        run: podman build -t hub.k8s.ucar.edu/ncote/utorview-demo:${{ steps.date.outputs.date }} .
+        run: podman build -t hub.k8s.ucar.edu/ncote/utorview-demo-img:${{ steps.date.outputs.date }} .
       - name: Login to Harbor
         run: podman login hub.k8s.ucar.edu -u ncote -p ${{ secrets.NCOTE_HARBOR_LOGIN  }}
       - name: Push image to Harbor
-        run: podman push hub.k8s.ucar.edu/ncote/utorview-demo:${{ steps.date.outputs.date }}
+        run: podman push hub.k8s.ucar.edu/ncote/utorview-demo-img:${{ steps.date.outputs.date }}
       - name: Update Helm values.yaml
         run: | 
-          sed -i "/utorview-demo/ c\    image: hub.k8s.ucar.edu/ncote/utorview-demo:${{ steps.date.outputs.date }}" utor-k8s/values.yaml
+          sed -i "/utorview-demo-img/ c\    image: hub.k8s.ucar.edu/ncote/utorview-demo-img:${{ steps.date.outputs.date }}" utor-k8s/values.yaml
       - name: Update Helm Chart.yaml
         run: | 
           sed -i "/appVersion:/ c\appVersion: ${{ steps.date.outputs.date }}" utor-k8s/Chart.yaml

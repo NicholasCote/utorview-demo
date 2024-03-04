@@ -1,14 +1,14 @@
 replicaCount: 1
 
 webapp:
-    image: hub.k8s.ucar.edu/ncote/utorview-demo:2024-03-04.23.21
-    image: hub.k8s.ucar.edu/ncote/utorview-demo:2024-03-04.23.21
+  name: utorview-demo
+  group: utorview-demo
   path: /
   tls:
-    image: hub.k8s.ucar.edu/ncote/utorview-demo:2024-03-04.23.21
-    image: hub.k8s.ucar.edu/ncote/utorview-demo:2024-03-04.23.21
+    fqdn: utorview-demo.k8s.ucar.edu
+    secretName: incommon-cert-utorview-demo
   container: 
-    image: hub.k8s.ucar.edu/ncote/utorview-demo:2024-03-04.23.21
+    image: hub.k8s.ucar.edu/ncote/utorview-demo-img:v1
     port: 80
     memory: 4G
     cpu: 4

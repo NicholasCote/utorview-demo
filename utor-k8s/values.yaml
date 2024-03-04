@@ -8,7 +8,7 @@ webapp:
     fqdn: utorview-demo.k8s.ucar.edu
     secretName: incommon-cert-utorview-demo
   container: 
-    image: hub.k8s.ucar.edu/ncote/utorview-demo-img:v1
+    image: hub.k8s.ucar.edu/ncote/utorview-demo-img:2024-03-04.23.29
     port: 80
     memory: 4G
     cpu: 4
